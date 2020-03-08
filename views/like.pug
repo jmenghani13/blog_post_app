@@ -1,0 +1,17 @@
+extends layout
+
+
+block content
+        br
+        if article.likes.length === 1
+          h2 1 user liked this article
+        else
+          h2 #{article.likes.length} users liked this article
+        hr
+        br
+        ul.list-group
+          each like, i in article.likes
+            li.list-group-item
+              p #{like.name}
+        
+        button.btn.btn-primary.ok(type='button') OK

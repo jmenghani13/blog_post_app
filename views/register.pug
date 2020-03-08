@@ -1,0 +1,35 @@
+extends layout
+
+
+block content
+    h1 Register
+    form(method='POST' , action='/users/register')
+      #form-group
+        label Name:
+        input.form-control(name='name', type='text')
+      #form-group
+        label DOB:
+        input.date.form-control(name='dob', type='date')
+      #form-group
+        label Gender:
+        select.form-control(name='gender')
+          option(value='' selected='true' disabled='disabled') Select your gender.
+          option(value='Male') Male
+          option(value='Female') Female
+          option(value='Other') Other
+      #form-group
+        label Email:
+        input.form-control(name='email', type='text')
+      #form-group
+        label Username:
+        input.form-control(name='username', type='text')
+      #form-group
+        label Password:
+        input.form-control(name='password', type='password')
+      #form-group
+        label Confirm Password:
+        input.form-control(name='password2', type='password')
+      br
+      input.btn.btn-primary(type='submit',value='Submit')
+      
+      

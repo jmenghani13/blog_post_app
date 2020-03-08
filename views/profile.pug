@@ -1,0 +1,82 @@
+extends layout
+
+
+block content
+        br
+        h1 #{user.username}
+        hr
+        img#profile_pic(src="/photos/"+ user.profile_picture alt="Profile Picture")
+        h2 ABOUT
+        p
+        <strong> Name : </strong>  #{user.name}
+        p
+        <strong> Date of Birth : </strong> #{user.dob.getDate()}.#{user.dob.getMonth()+1}.#{user.dob.getFullYear()} 
+        p
+        <strong> Gender : </strong> #{user.gender}
+        p
+        <strong> Email : </strong> #{user.email}
+        br
+        br
+        small#detail Click on the picture to change it.
+        .image_upload
+          form.form(method='POST', enctype='multipart/form-data')
+            #form-group
+              label#browse(for='file-upload')
+                  | BROWSE
+              input#file-upload.file(type='file' name="filefeild")
+              label#file-name
+              br
+              input#upload(type='submit', value='Upload/Change Profile Picture')  
+        if articles.length !==0
+          hr
+          h2 ARTICLES
+          ul.list-group
+            each article, i in articles
+              if user.id == article.author
+                li.list-group-item
+                  h4 
+                  if user
+                    if user.id == article.author
+                      a.btn.btn-danger.delete-article(href='#',data-id=article._id) DELETE
+                      a.btn.btn-primary.edit-article(href='/article/edit/'+article._id) EDIT 
+                  h4 #{article.title}
+                  h6 posted on #{article.date.getDate()}.#{article.date.getMonth()+1}.#{article.date.getFullYear()}
+                  p  
+                  | #{article.body}
+                  br
+                  br
+                  p
+                  if article.likes.length === 1
+                    a(href="/article/likes/"+article._id) 1 like
+                  if article.likes.length > 1
+                    a(href="/article/likes/"+article._id) #{article.likes.length} likes
+                    br
+                    a.btn.btn-primary.like(href="#",data-id=article._id,data-toggle="tooltip",data-placement='top',title=article.like_count+' people like this.') LIKE
+                    a.btn.btn-primary.comment(href="/article/"+article._id) COMMENT
+                  each comment, i in article.comments
+                      li.list-group-item
+                        strong #{comment.user_id.name}
+                        br
+                        strong posted on #{comment.date.getDate()}.#{comment.date.getMonth()}.#{comment.date.getFullYear()} 
+                        p #{comment.comment_text}
+                  br
+        hr 
+        h2 ACTIVITY 
+        ul.list-group
+          each article, i in articles
+            if article.author == user.id
+              li.list-group-item Posted an article on "#{article.title}".
+            
+            each comment, j in article.comments
+              if  comment.user_id.id == user.id
+                if article.author == user.id
+                  li.list-group-item Commmented "#{comment.comment_text}" on his own article.
+                else
+                  li.list-group-item Commmented "#{comment.comment_text}" on #{article.author_name}'s article.
+            
+            each like, j in article.likes
+              if user.id == like
+                if article.author == user.id
+                  li.list-group-item Liked on his own article.
+                else
+                  li.list-group-item Liked #{article.author_name}'s article.

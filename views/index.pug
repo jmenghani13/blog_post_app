@@ -1,0 +1,37 @@
+extends layout
+
+
+block content
+    h1 News Feed
+    ul.list-group
+      each article, i in articles
+        li.list-group-item
+          h2 
+          if user
+            if user.id == article.author
+              a.btn.btn-danger.delete-article(href='#',data-id=article._id) DELETE
+              a.btn.btn-primary.edit-article(href='/article/edit/'+article._id) EDIT 
+          h2
+            a.pro(href="/users/profile/"+article.author) #{article.author_name} 
+          h6 posted on #{article.date.getDate()}.#{article.date.getMonth()+1}.#{article.date.getFullYear()}
+          p
+          strong #{article.title}
+          br  
+          | #{article.body}
+          p
+          if user
+            if article.likes.length === 1
+              a(href="/article/likes/"+article._id) 1 like
+            if article.likes.length > 1
+              a(href="/article/likes/"+article._id) #{article.likes.length} likes
+            br
+            a.btn.btn-primary.like(href="#",data-id=article._id,data-toggle="tooltip",data-placement='top',title=article.like_count+' people like this.') LIKE
+            a.btn.btn-primary.comment(href="/article/"+article._id) COMMENT           
+            
+          each comment, i in article.comments
+              li.list-group-item
+                h5 #{comment.user_id.name}
+                p posted on #{comment.date.getDate()}.#{comment.date.getMonth()+1}.#{comment.date.getFullYear()} 
+                p #{comment.comment_text}
+          br
+          

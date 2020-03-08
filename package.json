@@ -1,0 +1,30 @@
+{
+  "name": "nodekb",
+  "version": "1.0.0",
+  "description": "blog app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "jayesh menghani\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b\u001b[C\u001b\u001b[C\u001b[CM\u001b[D\u001b[C\u001b[2~\u001b[D\u001b[C\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b: Jayesh Menghani",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "busboy": "^0.3.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.16.2",
+    "express-validator": "^6.0.0",
+    "gridfs-stream": "^1.1.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.6.0",
+    "multer": "^1.4.1",
+    "multer-gridfs-storage": "^3.2.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.4"
+  }
+}

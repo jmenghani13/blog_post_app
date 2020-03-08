@@ -1,0 +1,77 @@
+body{
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  }
+
+.list-group-item{
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+.alert-error{
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-success_msg{
+  color: #3c763d;
+  background-color: green;
+  border-color: #d6e9c6;
+}
+
+.comment-2{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.comment{
+  margin-left: 5px;
+}
+
+.edit-article{
+  margin-left: 5px;
+  float: right;
+}
+
+.btn-secondary{
+  margin-left: 5px;
+}
+
+.delete-article{
+  margin-left: 5px;
+  float: right;
+}
+
+#profile_pic{
+  float: right;
+  height: 200px;
+  width: 200px;
+  border:5px solid #021a40;
+}
+
+#article_body
+{
+  width: 500px;
+}
+
+#detail
+{
+  float: right;
+  font-family: "Courier New";
+
+}
+
+.image_upload{
+  display: none;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+.ok{
+  margin-top: 5px;
+}
+
+.pro {
+    color: black;
+}
